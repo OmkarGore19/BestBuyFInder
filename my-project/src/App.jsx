@@ -8,12 +8,13 @@ const App = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const url ="https://bestbuyfinder-backend.onrender.com/api/search";
 
   const handleSearch = async () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("http://localhost:3000/api/search", {
+      const response = await axios.get(url, {
         params: { query },
       });
       setResults(response.data.shopping_results);
